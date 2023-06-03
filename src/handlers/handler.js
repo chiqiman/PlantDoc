@@ -1,4 +1,4 @@
-const { connection } = require('../configs/db.config');
+const connection = require('../configs/db.config');
 
 const getPupuk = (req, res) => {
     const query = "SELECT * FROM pupuk";
@@ -7,7 +7,7 @@ const getPupuk = (req, res) => {
             console.log(err);
             res.status(400).json({message: err.message})
         } else {
-            res.json(results.rows);
+            res.json({message: 'ok'});
         }
     });
 };
