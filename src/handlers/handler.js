@@ -2,16 +2,26 @@ const connection = require('../configs/db.config');
 
 const getPupuk = (req, res) => {
     const query = "SELECT * FROM pupuk";
-    connection.query(query, (err, results) => {
+    connection.query(query, (err, rows) => {
         if (err) {
             console.log(err);
-            res.status(400).json({message: err.message})
+            res.status(500).send({message: err.sqlMessage})
         } else {
-            res.json({message: 'ok'});
+            res.json(rows);
         }
     });
 };
 
-const getHistory = (req, res) => {};
+const getHistory = (req, res) => {
+    const query = "SELECT * FROM pupuk";
+    connection.query(query, (err, rows) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send({message: err.sqlMessage})
+        } else {
+            res.json(rows);
+        }
+    });
+};
 
 module.exports = { getPupuk, getHistory };
