@@ -13,7 +13,7 @@ const getPupuk = (req, res) => {
 };
 
 const getHistory = (req, res) => {
-    const query = "SELECT * FROM pupuk";
+    const query = "SELECT * FROM history";
     connection.query(query, (err, rows) => {
         if (err) {
             console.log(err);
