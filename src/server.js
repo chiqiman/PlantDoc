@@ -11,7 +11,7 @@ app.listen(port, () => {
     console.log('REST API listening on port:', port);
 });
 
-app.get('/', async (req, res) => {
+app.get('/plantdoc', async (req, res) => {
     res.json({status: 'PlantDoc backend is running'});
 });
 

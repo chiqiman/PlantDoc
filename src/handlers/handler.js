@@ -12,4 +12,6 @@ const getPupuk = (req, res) => {
     });
 };
 
-module.exports = getPupuk;
+const getHistory = (req, res) => {};
+
+module.exports = { getPupuk, getHistory };
