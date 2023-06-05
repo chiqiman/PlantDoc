@@ -1,7 +1,33 @@
 const express = require('express');
 const router = express.Router();
 const Multer = require('multer');
-const { getPupuk, getHistory } = require('../handlers/handler');
+const { getPupuk, getHistory, } = require('../handlers/handler');
+/*
+const {
+    Login,
+    Register,
+    Logout,
+} = require('./authentication');
+
+
+const route = [
+    {
+      method: 'POST',
+      path: '/accounts',
+      handler: Register,
+    },
+    {
+      method: 'POST',
+      path: '/accounts',
+      handler: Login,
+    },
+    {
+      method: 'POST',
+      path: 'accounts',
+      handler: Logout,
+];
+*/
+
 
 const multer = Multer({
     storage: Multer.memoryStorage,
