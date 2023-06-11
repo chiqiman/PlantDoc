@@ -13,7 +13,7 @@ const getPupuk = (req, res) => {
 };
 
 const getHistory = (req, res) => {
-  const sqlQuery = 'SELECT * FROM penyakit';
+  const sqlQuery = 'SELECT * FROM penyakittanaman';
   connection.query(sqlQuery, (err, rows) => {
     if (err) {
       console.log(err);
@@ -40,9 +40,13 @@ const createHistory = (req, res) => {
   const id = req.body.id_penyakit;
   const nama = req.body.nama_penyakit;
   const description = req.body.description_penyakit;
-  const photoUrl = 'dsdsds';
+  let photoUrl = '';
 
-  const sqlQuery = `INSERT INTO berita VALUES ('${id}', '${photoUrl}', '${nama}', '${description}')`;
+  if (req.file && req.file.cloudStoragePublicUrl) {
+    photoUrl = req.file.cloudStoragePublicUrl;
+  }
+
+  const sqlQuery = `INSERT INTO penyakittanaman VALUES ('${id}', '${photoUrl}', '${nama}', '${description}')`;
   connection.query(sqlQuery, (err, result) => {
     if (err) {
       console.log(err);
