@@ -2,6 +2,7 @@ const express = require('express');
 const Multer = require('multer');
 const imgUpload = require('../configs/imgStorage');
 const { login, register } = require('../handlers/auth.handler');
+const verifyToken = require('../middlewares/jwt.midleware');
 const { 
   getPupuk, getHistory, getNews, createHistory,
 } = require('../handlers/handler');
@@ -16,9 +17,9 @@ const multer = Multer({
 router.post('/register', register);
 router.post('/login', login);
 
-router.get('/pupuk', getPupuk);
-router.get('/history', getHistory);
-router.get('/news', getNews);
+router.get('/pupuk', verifyToken, getPupuk);
+router.get('/history', verifyToken, getHistory);
+router.get('/news', verifyToken, getNews);
 
 router.post('/history', multer.single('file'), imgUpload.uploadToGcs, createHistory);
 
