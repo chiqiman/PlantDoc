@@ -46,7 +46,7 @@ const createHistory = (req, res) => {
     photoUrl = req.file.cloudStoragePublicUrl;
   }
 
-  const sqlQuery = `INSERT INTO penyakittanaman VALUES ('${id}', '${photoUrl}', '${nama}', '${description}')`;
+  const sqlQuery = `INSERT INTO penyakittanaman (photoUrl, nama, description) VALUES ('${photoUrl}', '${nama}', '${description}')`;
   connection.query(sqlQuery, (err, result) => {
     if (err) {
       console.log(err);

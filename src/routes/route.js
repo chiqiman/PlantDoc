@@ -21,7 +21,7 @@ router.get('/pupuk', verifyToken, getPupuk);
 router.get('/history', verifyToken, getHistory);
 router.get('/news', verifyToken, getNews);
 
-router.post('/history', multer.single('file'), imgUpload.uploadToGcs, createHistory);
+router.post('/history', verifyToken, multer.single('file'), imgUpload.uploadToGcs, createHistory);
 
 router.post('/uploadImage', multer.single('file'), imgUpload.uploadToGcs, (req, res, next) => {
   const data = req.body;
