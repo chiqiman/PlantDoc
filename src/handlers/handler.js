@@ -37,7 +37,6 @@ const getNews = (req, res) => {
 };
 
 const createHistory = (req, res) => {
-  const id = req.body.id_penyakit;
   const nama = req.body.nama_penyakit;
   const description = req.body.description_penyakit;
   let photoUrl = '';
